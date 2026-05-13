@@ -49,7 +49,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
                             <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium mt-1">Academy</span>
                         </div>
                     </div>
-                    <div className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/70">
+                    <div className="hidden md:flex items-center gap-8 text-sm font-bold text-foreground/70">
                         <a href="#features" className="hover:text-foreground transition-colors">Features</a>
                         <a href="#packages" className="hover:text-foreground transition-colors">Mentorship</a>
                         <a href="#youtube" className="hover:text-foreground transition-colors">Insights</a>
@@ -218,10 +218,10 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
 
                     {/* Footer Socials */}
                     <div className="flex justify-center gap-6 mb-8">
-                        <a href="#" className="text-muted-foreground/60 hover:text-[#229ED9] transition-colors"><Send className="w-5 h-5" /></a>
-                        <a href="#" className="text-muted-foreground/60 hover:text-[#ff0000] transition-colors"><Youtube className="w-5 h-5" /></a>
-                        <a href="#" className="text-muted-foreground/60 hover:text-[#1877f2] transition-colors"><Facebook className="w-5 h-5" /></a>
-                        <a href="#" className="text-muted-foreground/60 hover:text-foreground transition-colors"><TikTokIcon className="w-5 h-5" /></a>
+                        <a href="https://t.me/+xMqfUsDrsD00Yzhk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-[#229ED9] transition-colors"><Send className="w-5 h-5" /></a>
+                        <a href="https://youtube.com/@KellyBillaFX" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-[#ff0000] transition-colors"><Youtube className="w-5 h-5" /></a>
+                        <a href="https://facebook.com/kellybillafx" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-[#1877f2] transition-colors"><Facebook className="w-5 h-5" /></a>
+                        <a href="https://tiktok.com/@kellybillafx" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/60 hover:text-foreground transition-colors"><TikTokIcon className="w-5 h-5" /></a>
                     </div>
 
                     <p className="text-muted-foreground/50 text-xs text-sans transition-colors duration-500">
