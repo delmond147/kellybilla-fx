@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: #1E65F3;
+  --color-primary-hover: #3E80F5;
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-accent: #E40914;
+
+  --color-glass: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+
+  --font-serif: var(--font-poppins);
+  --font-sans: var(--font-poppins);
+
+  --shadow-border: 0 0 20px var(--shadow-color);
+  --shadow-border-hover: 0 10px 30px var(--shadow-hover-color);
+}
+
+:root {
+  /* LIGHT MODE (Default) */
+  --background: #ffffff;
+  --foreground: #121212;
+  --secondary: #f4f4f5;
+  --secondary-hover: #e4e4e7;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --hero-blend: normal;
+  --hero-opacity: 1;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --shadow-hover-color: rgba(0, 0, 0, 0.12);
+  color-scheme: light;
+}
+
+.dark {
+  /* DARK MODE (Classy Dark) */
+  --background: #121212;
+  --foreground: #ededed;
+  --secondary: #0a0a0e;
+  --secondary-hover: #14141c;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --hero-blend: normal;
+  --hero-opacity: 1;
+  --shadow-color: rgba(255, 255, 255, 0.03);
+  --shadow-hover-color: rgba(30, 101, 243, 0.15);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mask-edges {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
