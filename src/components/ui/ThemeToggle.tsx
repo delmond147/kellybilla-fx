@@ -14,7 +14,7 @@ export function ThemeToggle() {
     }, []);
 
     if (!mounted) {
-        return <div className="w-10 h-10 rounded-full bg-secondary border border-border" />;
+        return <div className="w-8 h-8 rounded-full bg-secondary" />;
     }
 
     const isDark = theme === "dark";
@@ -22,7 +22,7 @@ export function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative flex items-center justify-center w-10 h-10 rounded-full transition-colors bg-secondary border border-border hover:border-[#1E65F3]/50 group overflow-hidden"
+            className="relative flex items-center justify-center w-8 h-8 rounded-full transition-colors bg-secondary hover:bg-secondary/80 group overflow-hidden"
             aria-label="Toggle theme"
         >
             <motion.div
@@ -35,7 +35,7 @@ export function ThemeToggle() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute inset-0 flex items-center justify-center text-[#1E65F3]"
             >
-                <Moon className="w-5 h-5 fill-current" />
+                <Moon className="w-4 h-4 fill-current" />
             </motion.div>
 
             <motion.div
@@ -48,7 +48,7 @@ export function ThemeToggle() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute inset-0 flex items-center justify-center text-[#1E65F3]"
             >
-                <Sun className="w-5 h-5 fill-current" />
+                <Sun className="w-4 h-4 fill-current" />
             </motion.div>
         </button>
     );

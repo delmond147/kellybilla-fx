@@ -76,7 +76,7 @@ export function FAQ() {
     };
 
     return (
-        <section className="py-24 relative transition-colors duration-500" id="faq">
+        <section className="py-16 md:py-24 relative transition-colors duration-500" id="faq">
             <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
 

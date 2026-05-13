@@ -10,7 +10,7 @@ export function Tools() {
     const [activeTab, setActiveTab] = useState<"position" | "risk">("position");
 
     return (
-        <section className="py-24 relative overflow-hidden" id="tools">
+        <section className="py-16 md:py-24 relative overflow-hidden" id="tools">
             <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10 max-w-4xl">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4 transition-colors duration-500">Precision <span className="text-[#1E65F3]">Tools</span></h2>

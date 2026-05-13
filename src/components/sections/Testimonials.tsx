@@ -51,7 +51,7 @@ export function Testimonials() {
     }, [animate, scope]);
 
     return (
-        <section className="py-24 relative overflow-hidden transition-colors duration-500" id="testimonials">
+        <section className="py-16 md:py-24 relative overflow-hidden transition-colors duration-500" id="testimonials">
             {/* Decorative Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#1E65F3]/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -83,7 +83,7 @@ export function Testimonials() {
                                 {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
                                     <div
                                         key={`${setIndex}-${testimonial.id}-${i}`}
-                                        className="glass p-8 rounded-2xl relative border border-border hover:border-[#1E65F3]/30 transition-all duration-500 shadow-border hover:shadow-border-hover w-[350px] md:w-[400px] shrink-0"
+                                        className="glass p-8 rounded-2xl relative border border-border hover:border-[#1E65F3]/30 transition-all duration-500 shadow-border hover:shadow-border-hover w-[300px] sm:w-[350px] md:w-[400px] shrink-0"
                                     >
                                         <Quote className="absolute top-6 right-6 w-10 h-10 text-foreground/5 rotate-180 transition-colors duration-500" />
 

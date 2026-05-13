@@ -37,7 +37,7 @@ export async function YouTubeFeed() {
     }
 
     return (
-        <section className="py-24 relative transition-colors duration-500" id="youtube">
+        <section className="py-16 md:py-24 relative transition-colors duration-500" id="youtube">
             <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-500 text-sm font-semibold mb-6">

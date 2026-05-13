@@ -38,7 +38,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
             </div>
 
             {/* Navigation */}
-            <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-background/40 backdrop-blur-2xl shadow-xl rounded-full py-3 px-6 transition-all duration-500">
+            <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-background/40 backdrop-blur-2xl shadow-xl rounded-full py-3 px-4 md:px-6 transition-all duration-500">
                 <div className="flex justify-between items-center w-full">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" alt="KellyBilla FX Logo" className="w-12 h-12 object-contain rounded-full" />
@@ -66,7 +66,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
             </nav>
 
             {/* 1. Hero Section */}
-            <section className="relative min-h-[578px] flex items-center mb-4 pt-20 overflow-hidden">
+            <section className="relative min-h-[500px] md:min-h-[578px] flex items-center mb-4 pt-32 md:pt-40 pb-16 md:pb-0 overflow-hidden">
 
                 {/* Hero Image & Brand Color Glows */}
                 <div
@@ -99,17 +99,17 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
                         <div className="inline-block px-4 py-1.5 rounded-full border border-[#1E65F3]/30 bg-[#1E65F3]/10 text-[#1E65F3] text-sm font-semibold mb-5">
                             Elite Forex Mentorship
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-sans font-extrabold text-foreground leading-[0.95] tracking-tight mb-6 transition-colors duration-500">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-sans font-extrabold text-foreground leading-[0.95] tracking-tight mb-6 transition-colors duration-500">
                             Master the Markets with <span className="text-[#1E65F3]">Precision.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg font-sans leading-snug transition-colors duration-500">
                             Stop guessing. Gain the institutional edge with structured coaching, premium calculators, and a community of dedicated traders.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" variant="primary" onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <div className="flex flex-col sm:flex-row items-start gap-4">
+                            <Button size="lg" variant="primary" className="px-5 sm:px-8" onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Start Your Journey
                             </Button>
-                            <Button size="lg" variant="secondary" onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}>
+                            <Button size="lg" variant="secondary" className="px-5 sm:px-8" onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Watch Insights
                             </Button>
                         </div>
@@ -118,7 +118,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
             </section>
 
             {/* 2. Features / Value Proposition */}
-            <section className="py-24 relative z-20 transition-colors duration-500" id="features">
+            <section className="py-16 md:py-24 relative z-20 transition-colors duration-500" id="features">
                 <div className="w-[95%] max-w-7xl mx-auto px-6">
                     <motion.div
                         initial="hidden"
@@ -207,7 +207,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
             <Contact />
 
             {/* Footer */}
-            <footer className="py-12 border-t border-border text-center relative z-20 transition-colors duration-500" id="footer">
+            <footer className="py-8 md:py-12 border-t border-border text-center relative z-20 transition-colors duration-500" id="footer">
                 <div className="w-[95%] max-w-7xl mx-auto px-6">
                     <div className="font-serif text-2xl font-bold tracking-tighter text-foreground/50 mb-6 transition-colors duration-500">
                         KellyBilla<span className="text-[#E40914]/50">FX</span>

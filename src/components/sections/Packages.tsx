@@ -67,7 +67,7 @@ export function Packages() {
     };
 
     return (
-        <section className="py-24 relative transition-colors duration-500" id="packages">
+        <section className="py-16 md:py-24 relative transition-colors duration-500" id="packages">
             <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4 transition-colors duration-500">Choose Your <span className="text-[#E40914]">Path</span></h2>
@@ -93,7 +93,7 @@ export function Packages() {
                                 }`}
                         >
                             {pkg.highlight && (
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1E65F3] text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest hidden md:block">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1E65F3] text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                                     Most Popular
                                 </div>
                             )}

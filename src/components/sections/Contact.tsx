@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Mail, MapPin, ArrowRight } from "lucide-react";
+import { MessageSquare, Mail, Send, ArrowRight } from "lucide-react";
 
 export function Contact() {
     const fadeUpVariant: any = {
@@ -12,7 +12,7 @@ export function Contact() {
     };
 
     return (
-        <section className="py-24 relative transition-colors duration-500" id="contact">
+        <section className="py-16 md:py-24 relative transition-colors duration-500" id="contact">
             {/* Decorative Glow */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E40914]/5 rounded-full blur-[150px] pointer-events-none" />
 
@@ -67,12 +67,15 @@ export function Contact() {
                         </div>
 
                         <div className="flex items-start gap-4 p-6 rounded-2xl glass hover:bg-foreground/5 border border-transparent hover:border-border group transition-all duration-500 shadow-border hover:shadow-border-hover">
-                            <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                <MapPin className="w-6 h-6 text-foreground transition-colors duration-500" />
+                            <div className="w-12 h-12 rounded-xl bg-[#229ED9]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                <Send className="w-6 h-6 text-[#229ED9]" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-foreground mb-1 transition-colors duration-500">Based In</h3>
-                                <p className="text-muted-foreground text-sm transition-colors duration-500">Operating globally, serving traders worldwide with excellence.</p>
+                                <h3 className="text-xl font-bold text-foreground mb-1 transition-colors duration-500">Telegram Community</h3>
+                                <p className="text-muted-foreground text-sm mb-3 transition-colors duration-500">Join our free public channel for market updates and setups.</p>
+                                <a href="https://t.me/+xMqfUsDrsD00Yzhk" target="_blank" rel="noopener noreferrer" className="text-[#229ED9] flex items-center gap-2 text-sm font-semibold hover:underline">
+                                    Join Channel <ArrowRight className="w-4 h-4" />
+                                </a>
                             </div>
                         </div>
                     </motion.div>
