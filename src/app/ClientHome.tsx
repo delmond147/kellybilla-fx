@@ -105,11 +105,11 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
                         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg font-sans leading-snug transition-colors duration-500">
                             Stop guessing. Gain the institutional edge with structured coaching, premium calculators, and a community of dedicated traders.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 w-full sm:w-auto pr-4 sm:pr-0">
-                            <Button variant="primary" className="h-12 px-6 sm:h-14 sm:px-8 text-base sm:text-lg font-semibold tracking-wide w-full sm:w-auto" onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <div className="flex flex-col sm:flex-row items-start gap-4">
+                            <Button variant="primary" className="h-11 px-5 sm:h-12 sm:px-6 text-sm sm:text-base font-semibold tracking-wide" onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Start Your Journey
                             </Button>
-                            <Button variant="secondary" className="h-12 px-6 sm:h-14 sm:px-8 text-base sm:text-lg font-semibold tracking-wide w-full sm:w-auto" onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}>
+                            <Button variant="secondary" className="h-11 px-5 sm:h-12 sm:px-6 text-sm sm:text-base font-semibold tracking-wide" onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Watch Insights
                             </Button>
                         </div>
