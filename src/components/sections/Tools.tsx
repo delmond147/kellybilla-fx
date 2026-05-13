@@ -57,7 +57,7 @@ export function Tools() {
                 </div>
 
                 {/* Content */}
-                <div className="relative min-h-[500px]">
+                <div className="relative min-h-[550px] md:min-h-[500px]">
                     <AnimatePresence mode="wait">
                         {activeTab === "position" ? (
                             <motion.div
@@ -66,7 +66,7 @@ export function Tools() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.3 }}
-                                className="absolute inset-0 max-w-2xl mx-auto w-full"
+                                className="max-w-2xl mx-auto w-full"
                             >
                                 <PositionSize />
                             </motion.div>
@@ -77,7 +77,7 @@ export function Tools() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.3 }}
-                                className="absolute inset-0 max-w-2xl mx-auto w-full"
+                                className="max-w-2xl mx-auto w-full"
                             >
                                 <RiskReward />
                             </motion.div>
