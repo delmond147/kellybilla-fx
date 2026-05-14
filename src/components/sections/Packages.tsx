@@ -8,43 +8,53 @@ import { motion, Variants } from "framer-motion";
 
 const PACKAGES = [
     {
-        id: "essential",
-        name: "Essential Blueprint",
-        price: 100,
-        description: "Perfect for beginners looking to master the fundamentals of forex trading.",
+        id: "Free",
+        name: "Free Mentorship",
+        price: 0,
+        description: "Meet certain requirements to get a free mentorship course.",
         features: [
-            "Access to Beginner Course",
-            "Weekly Market Breakdown",
-            "Private Discord Community",
-            "Basic Trade Setups"
+            "Candlestick Analysis",
+            "Demand and Supply",
+            "Advanced Market Structure",
+            "Liquidity Concepts",
+            "Risk Management and Psychology",
+            "Entry Confirmations",
+            "Candle Range Theory",
+            "Institutional Order Flow"
         ],
         highlight: false,
     },
     {
-        id: "pro",
-        name: "Pro Mentorship",
-        price: 299,
-        description: "For intermediate traders ready to refine their edge and scale capital.",
+        id: "Advanced Mentorship",
+        name: "Advanced Mentorship",
+        price: 100,
+        description: "Perfect for intermediate traders ready to level up their forex trading game.",
         features: [
-            "Advanced SMC Strategy",
-            "Daily Market Breakdown",
-            "1-on-1 Monthly Review",
-            "VIP Discord & Signals",
-            "Psychology Masterclass"
+            "Demand and Supply",
+            "Liquidity Concepts",
+            "Advanced Market Structure",
+            "Dealing Range Theory",
+            "Risk Management and Psychology",
+            "Candle Range Theory",
+            "Institutional Order Flow",
+            "Entry Confirmations"
+
         ],
         highlight: true,
     },
     {
-        id: "elite",
-        name: "Elite Inner Circle",
-        price: 500,
-        description: "Direct access and personalized coaching for serious traders.",
+        id: "Beginer Mentorship",
+        name: "Beginer Forex Mentorship",
+        price: 0,
+        description: "Perfect for beginner traders to learn forex fundamentals and basic trading concepts.",
         features: [
-            "Everything in Pro Mentorship",
-            "Weekly 1-on-1 Zoom Calls",
-            "Custom Trading Plan",
-            "Funded Account Guidance",
-            "Lifetime Updates"
+            "Introduction to Forex",
+            "Basic Trading Concepts",
+            "Risk Management Basics",
+            "Introduction to Trading Strategies",
+            "Introduction to Technical Analysis",
+            "Introduction to Fundamental Analysis",
+            "Introduction to Trading Psychology"
         ],
         highlight: false,
     }

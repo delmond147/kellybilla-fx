@@ -82,7 +82,7 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
                         className="w-auto h-[130%] object-contain object-bottom origin-bottom-right"
                         style={{ WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 15%)', maskImage: 'linear-gradient(to top, transparent 0%, black 15%)' }}
                     />
-                    
+
                     {/* Fading blue localized only to the legs (bottom right) so it doesn't cover the face or body */}
                     <div className="absolute bottom-0 right-0 w-full max-w-[600px] h-32 bg-[radial-gradient(ellipse_at_bottom,rgba(30,101,243,0.3)_0%,transparent_70%)] pointer-events-none" />
                 </div>
@@ -109,8 +109,8 @@ export function ClientHome({ youtubeFeed }: { youtubeFeed: React.ReactNode }) {
                             <Button variant="primary" className="h-11 px-5 sm:h-12 sm:px-6 text-sm sm:text-base font-semibold tracking-wide" onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}>
                                 Start Your Journey
                             </Button>
-                            <Button variant="secondary" className="h-11 px-5 sm:h-12 sm:px-6 text-sm sm:text-base font-semibold tracking-wide" onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}>
-                                Watch Insights
+                            <Button variant="secondary" className="h-11 px-5 sm:h-12 sm:px-6 text-sm sm:text-base font-semibold tracking-wide" onClick={() => window.open('https://t.me/+xMqfUsDrsD00Yzhk', '_blank')}>
+                                Join Telegram Community
                             </Button>
                         </div>
                     </motion.div>
