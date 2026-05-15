@@ -54,7 +54,7 @@ export async function YouTubeFeed() {
                 <div className="mt-16 flex justify-center">
                     <a href={`https://youtube.com/${process.env.YOUTUBE_CHANNEL_HANDLE || '@KellyBillaFX'}`} target="_blank" rel="noopener noreferrer">
                         <Button size="lg" variant="accent" className="gap-2 px-8">
-                            <Youtube className="w-5 h-5" /> View More on YouTube
+                            <Youtube className="w-5 h-5" /> Watch More On YouTube
                         </Button>
                     </a>
                 </div>

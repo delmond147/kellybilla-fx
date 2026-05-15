@@ -3,26 +3,23 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PaymentFlow } from "@/components/payment/PaymentFlow";
+import { BeginnerFlow } from "@/components/payment/BeginnerFlow";
 import { Check } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 const PACKAGES = [
     {
         id: "Free",
-        name: "Free Mentorship",
+        name: "Create Your Trading Account",
         price: 0,
-        description: "Meet certain requirements to get a free mentorship course.",
+        description: "We have partnered with the best broker in the industry to give you the best experience.",
         features: [
-            "Candlestick Analysis",
-            "Demand and Supply",
-            "Advanced Market Structure",
-            "Liquidity Concepts",
-            "Risk Management and Psychology",
-            "Entry Confirmations",
-            "Candle Range Theory",
-            "Institutional Order Flow"
+            "Access to Private Telegram Group",
+            "Setups And Trade Management",
+            "Trade With me Live"
         ],
         highlight: false,
+        isBroker: true,
     },
     {
         id: "Advanced Mentorship",
@@ -36,7 +33,6 @@ const PACKAGES = [
             "Dealing Range Theory",
             "Risk Management and Psychology",
             "Candle Range Theory",
-            "Institutional Order Flow",
             "Entry Confirmations"
 
         ],
@@ -57,11 +53,13 @@ const PACKAGES = [
             "Introduction to Trading Psychology"
         ],
         highlight: false,
+        isBeginner: true,
     }
 ];
 
 export function Packages() {
     const [selectedPackage, setSelectedPackage] = useState<{ name: string, price: number } | null>(null);
+    const [isBeginnerOpen, setIsBeginnerOpen] = useState(false);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -108,35 +106,94 @@ export function Packages() {
                                 </div>
                             )}
 
-                            <div>
-                                <h3 className={`text-2xl font-serif mb-2 transition-colors duration-500 ${pkg.highlight ? "text-white" : "text-foreground"}`}>{pkg.name}</h3>
-                                <p className={`text-sm h-10 transition-colors duration-500 ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>{pkg.description}</p>
-                            </div>
+                            {pkg.isBroker ? (
+                                <div className="flex flex-col h-full items-center text-center gap-6">
+                                    <div className="space-y-2">
+                                        <h3 className="text-2xl font-serif text-foreground leading-tight transition-colors duration-500">{pkg.name}</h3>
+                                        <p className="text-sm text-muted-foreground transition-colors duration-500 h-10">{pkg.description}</p>
+                                    </div>
 
-                            <div className={`text-4xl font-bold tracking-tight transition-colors duration-500 ${pkg.highlight ? "text-white" : "text-foreground"}`}>
-                                ${pkg.price}
-                            </div>
+                                    <div className="flex items-center justify-center py-6 w-full">
+                                        <img
+                                            src="/exness-logo.png"
+                                            alt="Exness"
+                                            className="h-20 md:h-24 w-auto object-contain transition-transform duration-500 hover:scale-110"
+                                        />
+                                    </div>
 
-                            <ul className="space-y-4 flex-1 mt-4">
-                                {pkg.features.map((feature, i) => (
-                                    <li key={i} className={`flex items-start gap-3 text-sm transition-colors duration-500 ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>
-                                        <Check className={`h-5 w-5 shrink-0 transition-colors duration-500 ${pkg.highlight ? "text-[#1E65F3]" : "text-[#E40914]"}`} />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                    <ul className="space-y-3 flex-1 text-left w-full mt-2">
+                                        {pkg.features.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-3 text-sm transition-colors duration-500 text-muted-foreground">
+                                                <Check className="h-5 w-5 shrink-0 transition-colors duration-500 text-[#1E65F3]" />
+                                                <span>{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
 
-                            <Button
-                                variant={pkg.highlight ? "primary" : "secondary"}
-                                className="w-full mt-4"
-                                onClick={() => setSelectedPackage({ name: pkg.name, price: pkg.price })}
-                            >
-                                Enroll Now
-                            </Button>
+                                    <Button
+                                        variant="primary"
+                                        className="w-full mt-4"
+                                        onClick={() => window.open('https://one.exnesstrack.org/a/yhy4iuxjzd', '_blank')}
+                                    >
+                                        Create Trading Account
+                                    </Button>
+
+                                    <div className="mt-2 text-center">
+                                        <p className="text-xs text-muted-foreground transition-colors duration-500">
+                                            Already have an account?{" "}
+                                            <button
+                                                onClick={() => window.open('https://wa.me/237677815907', '_blank')}
+                                                className="text-[#1E65F3] font-bold hover:underline transition-all"
+                                            >
+                                                Contact on WhatsApp
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <>
+                                    <div>
+                                        <h3 className={`text-2xl font-serif mb-2 transition-colors duration-500 ${pkg.highlight ? "text-white" : "text-foreground"}`}>{pkg.name}</h3>
+                                        <p className={`text-sm h-10 transition-colors duration-500 ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>{pkg.description}</p>
+                                    </div>
+
+                                    <div className={`text-4xl font-bold tracking-tight transition-colors duration-500 ${pkg.highlight ? "text-white" : "text-foreground"}`}>
+                                        ${pkg.price}
+                                    </div>
+
+                                    <ul className="space-y-4 flex-1 mt-4">
+                                        {pkg.features.map((feature, i) => (
+                                            <li key={i} className={`flex items-start gap-3 text-sm transition-colors duration-500 ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>
+                                                <Check className={`h-5 w-5 shrink-0 transition-colors duration-500 ${pkg.highlight ? "text-[#1E65F3]" : "text-[#E40914]"}`} />
+                                                <span>{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <Button
+                                        variant={pkg.highlight ? "primary" : "secondary"}
+                                        className="w-full mt-4"
+                                        onClick={() => {
+                                            if (pkg.isBeginner) {
+                                                setIsBeginnerOpen(true);
+                                            } else {
+                                                setSelectedPackage({ name: pkg.name, price: pkg.price });
+                                            }
+                                        }}
+                                    >
+                                        {pkg.isBeginner ? "Get Access Now" : "Enroll Now"}
+                                    </Button>
+                                </>
+                            )}
                         </motion.div>
                     ))}
                 </motion.div>
             </div>
+
+            <BeginnerFlow
+                isOpen={isBeginnerOpen}
+                onClose={() => setIsBeginnerOpen(false)}
+            />
 
             <PaymentFlow
                 isOpen={selectedPackage !== null}

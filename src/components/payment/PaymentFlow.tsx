@@ -15,7 +15,7 @@ export function PaymentFlow({ isOpen, onClose, packageName, packagePrice }: Paym
     const [method, setMethod] = useState<"momo" | "usdt" | null>(null);
 
     // Placeholder phone number. Will be replaced by actual client number.
-    const PHONE_NUMBER = "1234567890";
+    const PHONE_NUMBER = "237677815907";
     const MENTOR_NAME = "Kelly";
 
     const handleConfirm = () => {

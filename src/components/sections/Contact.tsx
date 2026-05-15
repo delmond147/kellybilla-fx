@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,42 @@ export function Contact() {
     const fadeUpVariant: any = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    };
+
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: ""
+    });
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        // Formspree integration (replace 'xoqgzpbd' with actual ID)
+        try {
+            const response = await fetch("https://formspree.io/f/mpqbvdkq", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    message: formData.message
+                }),
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                setFormData({ firstName: "", lastName: "", email: "", message: "" });
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+            }
+        } catch (err) {
+            setStatus("error");
+        }
     };
 
     return (
@@ -47,7 +84,7 @@ export function Contact() {
                             <div>
                                 <h3 className="text-xl font-bold text-foreground mb-1 transition-colors duration-500">Direct WhatsApp</h3>
                                 <p className="text-muted-foreground text-sm mb-3 transition-colors duration-500">Fastest response time for enrollment queries.</p>
-                                <a href="#" className="text-[#E40914] flex items-center gap-2 text-sm font-semibold hover:underline">
+                                <a href="https://wa.me/237677815907" target="_blank" rel="noopener noreferrer" className="text-[#E40914] flex items-center gap-2 text-sm font-semibold hover:underline">
                                     Chat Now <ArrowRight className="w-4 h-4" />
                                 </a>
                             </div>
@@ -60,8 +97,8 @@ export function Contact() {
                             <div>
                                 <h3 className="text-xl font-bold text-foreground mb-1 transition-colors duration-500">Email Support</h3>
                                 <p className="text-muted-foreground text-sm mb-3 transition-colors duration-500">For business inquiries and account issues.</p>
-                                <a href="#" className="text-[#1E65F3] flex items-center gap-2 text-sm font-semibold hover:underline">
-                                    support@kellybillafx.com <ArrowRight className="w-4 h-4" />
+                                <a href="mailto:billanahgwa@gmail.com" className="text-[#1E65F3] flex items-center gap-2 text-sm font-semibold hover:underline">
+                                    billanahgwa@gmail.com <ArrowRight className="w-4 h-4" />
                                 </a>
                             </div>
                         </div>
@@ -88,21 +125,42 @@ export function Contact() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="glass rounded-3xl p-8 border border-border transition-all duration-500 shadow-border hover:shadow-border-hover"
                     >
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-foreground/80 pl-1 transition-colors duration-500">First Name</label>
-                                    <Input type="text" placeholder="John" className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground" />
+                                    <Input
+                                        type="text"
+                                        placeholder="John"
+                                        required
+                                        value={formData.firstName}
+                                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                                        className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-foreground/80 pl-1 transition-colors duration-500">Last Name</label>
-                                    <Input type="text" placeholder="Doe" className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground" />
+                                    <Input
+                                        type="text"
+                                        placeholder="Doe"
+                                        required
+                                        value={formData.lastName}
+                                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                                        className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground"
+                                    />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-foreground/80 pl-1 transition-colors duration-500">Email Address</label>
-                                <Input type="email" placeholder="john@example.com" className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground" />
+                                <Input
+                                    type="email"
+                                    placeholder="john@example.com"
+                                    required
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    className="bg-background/50 border-border focus-visible:ring-[#E40914] h-12 transition-colors duration-500 text-foreground"
+                                />
                             </div>
 
                             <div className="space-y-2">
@@ -110,13 +168,38 @@ export function Contact() {
                                 <textarea
                                     rows={4}
                                     placeholder="I'm interested in the Pro Mentorship..."
+                                    required
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     className="flex w-full rounded-md border border-border bg-background/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E40914] transition-colors duration-500 font-sans resize-none"
                                 />
                             </div>
 
-                            <Button variant="accent" className="w-full h-14 text-lg font-bold">
-                                Send Message
+                            <Button
+                                type="submit"
+                                variant="accent"
+                                className="w-full h-14 text-lg font-bold disabled:opacity-70"
+                                disabled={status === "sending" || status === "success"}
+                            >
+                                {status === "sending" ? (
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        Sending...
+                                    </div>
+                                ) : status === "success" ? (
+                                    "Message Sent! ✅"
+                                ) : status === "error" ? (
+                                    "Error! Try Again ❌"
+                                ) : (
+                                    "Send Message"
+                                )}
                             </Button>
+
+                            {status === "success" && (
+                                <p className="text-green-500 text-center text-sm font-medium animate-in fade-in slide-in-from-top-2">
+                                    Thank you! Your message has been delivered directly.
+                                </p>
+                            )}
                         </form>
                     </motion.div>
 

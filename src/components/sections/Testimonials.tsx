@@ -38,7 +38,8 @@ export function Testimonials() {
     const controlsRef = useRef<any>(null);
 
     useEffect(() => {
-        if (scope.current) {
+        const isMobile = window.innerWidth < 768;
+        if (scope.current && !isMobile) {
             controlsRef.current = animate(
                 scope.current,
                 { x: ["0%", "-50%"] },
@@ -69,21 +70,22 @@ export function Testimonials() {
                     </p>
                 </motion.div>
 
-                <div className="relative max-w-[100vw] overflow-hidden -mx-6 px-6 mask-edges">
+                <div className="relative max-w-[100vw] overflow-x-auto md:overflow-hidden -mx-6 px-6 mask-edges no-scrollbar">
                     <motion.div
                         ref={scope}
                         className="flex w-max"
                         onHoverStart={() => controlsRef.current?.pause()}
                         onHoverEnd={() => controlsRef.current?.play()}
                     >
-                        {/* We use two identical sets to create a seamless loop. 
-                            Each set contains the original items repeated twice just to be sure it spans the screen width. */}
                         {[0, 1].map((setIndex) => (
-                            <div key={`set-${setIndex}`} className="flex gap-8 pr-8 w-max">
-                                {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
+                            <div 
+                                key={`set-${setIndex}`} 
+                                className={`flex gap-8 pr-8 w-max ${setIndex === 1 ? "hidden md:flex" : "flex"}`}
+                            >
+                                {(setIndex === 0 ? [...TESTIMONIALS, ...TESTIMONIALS] : TESTIMONIALS).map((testimonial, i) => (
                                     <div
                                         key={`${setIndex}-${testimonial.id}-${i}`}
-                                        className="glass p-8 rounded-2xl relative border border-border hover:border-[#1E65F3]/30 transition-all duration-500 shadow-border hover:shadow-border-hover w-[300px] sm:w-[350px] md:w-[400px] shrink-0"
+                                        className="glass p-8 rounded-2xl relative border border-border hover:border-[#1E65F3]/30 transition-all duration-500 shadow-border hover:shadow-border-hover w-[280px] sm:w-[350px] md:w-[400px] shrink-0"
                                     >
                                         <Quote className="absolute top-6 right-6 w-10 h-10 text-foreground/5 rotate-180 transition-colors duration-500" />
 
