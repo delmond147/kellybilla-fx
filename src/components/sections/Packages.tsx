@@ -130,7 +130,7 @@ export function Packages() {
                                     </ul>
 
                                     <Button
-                                        variant="primary"
+                                        variant={pkg.highlight ? "primary" : "secondary"}
                                         className="w-full mt-4"
                                         onClick={() => window.open('https://one.exnesstrack.org/a/yhy4iuxjzd', '_blank')}
                                     >
