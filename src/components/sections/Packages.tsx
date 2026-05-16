@@ -49,8 +49,7 @@ const PACKAGES = [
             "Risk Management Basics",
             "Introduction to Trading Strategies",
             "Introduction to Technical Analysis",
-            "Introduction to Fundamental Analysis",
-            "Introduction to Trading Psychology"
+            "Introduction to Fundamental Analysis"
         ],
         highlight: false,
         isBeginner: true,
@@ -183,6 +182,20 @@ export function Packages() {
                                     >
                                         {pkg.isBeginner ? "Get Access Now" : "Enroll Now"}
                                     </Button>
+
+                                    {pkg.isBeginner && (
+                                        <div className="mt-2 text-center">
+                                            <p className="text-xs text-muted-foreground transition-colors duration-500">
+                                                Already have an account?{" "}
+                                                <button
+                                                    onClick={() => window.open('https://wa.me/237677815907', '_blank')}
+                                                    className="text-[#1E65F3] font-bold hover:underline transition-all"
+                                                >
+                                                    Contact on WhatsApp
+                                                </button>
+                                            </p>
+                                        </div>
+                                    )}
                                 </>
                             )}
                         </motion.div>

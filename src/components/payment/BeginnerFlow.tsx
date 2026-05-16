@@ -64,6 +64,17 @@ export function BeginnerFlow({ isOpen, onClose }: BeginnerFlowProps) {
                             >
                                 <ExternalLink className="w-3.5 h-3.5" /> Open Signup Link
                             </Button>
+                            <div className="text-center">
+                                <p className="text-[10px] text-muted-foreground transition-colors duration-500">
+                                    Already have an account?{" "}
+                                    <button
+                                        onClick={() => window.open('https://wa.me/237677815907', '_blank')}
+                                        className="text-[#1E65F3] font-bold hover:underline transition-all"
+                                    >
+                                        Contact the Mentor on WhatsApp
+                                    </button>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
